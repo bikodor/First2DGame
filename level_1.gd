@@ -31,7 +31,7 @@ func _ready() -> void:
 	global.food = 0
 	global.wood = 0
 	global.materials = 0
-	global.damage_basic = 5000
+	global.damage_basic = 20
 	global.player_health = 150
 	global.first_spawner_hp = 10000
 	global.first_spawner_max_hp = 10000
