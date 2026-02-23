@@ -1,0 +1,24 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://c02ceuj2v73v8"]
+
+[ext_resource type="FontFile" uid="uid://d4gd5fnjkmwvn" path="res://Tribal Garamond.ttf" id="1_amlv4"]
+[ext_resource type="Texture2D" uid="uid://cyn8882y1gp61" path="res://Aseprite/UI_border.png" id="2_i7eh4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i7eh4"]
+texture = ExtResource("2_i7eh4")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_78ylj"]
+texture = ExtResource("2_i7eh4")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[resource]
+default_font = ExtResource("1_amlv4")
+Label/fonts/font = ExtResource("1_amlv4")
+Panel/styles/panel = SubResource("StyleBoxTexture_i7eh4")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_78ylj")

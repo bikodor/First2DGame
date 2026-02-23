@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://e8vmfcb4fe8x"]
+
+[ext_resource type="Script" uid="uid://djja1v6x180db" path="res://menu.gd" id="1_cx167"]
+[ext_resource type="PackedScene" uid="uid://bfgvknj48pnq2" path="res://background.tscn" id="2_5yleq"]
+[ext_resource type="AudioStream" uid="uid://dpbajnhsbb5l4" path="res://Aseprite/sound/music/medieval-fantasy-142837.mp3" id="3_ylpcl"]
+[ext_resource type="AudioStream" uid="uid://ddokc3tv7vkbh" path="res://Aseprite/sound/SFX/click-21156.mp3" id="4_cx167"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_cx167")
+
+[node name="Background" parent="." instance=ExtResource("2_5yleq")]
+
+[node name="Third" parent="Background" index="0"]
+repeat_times = 4
+
+[node name="Second" parent="Background" index="1"]
+repeat_times = 4
+
+[node name="First" parent="Background" index="2"]
+scroll_offset = Vector2(3, 1)
+repeat_times = 4
+
+[node name="Quit" type="Button" parent="."]
+layout_direction = 2
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 400.0
+offset_top = 382.0
+offset_right = 799.0
+offset_bottom = 628.99945
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 100
+text = "Quit"
+
+[node name="Play" type="Button" parent="."]
+layout_direction = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -793.0
+offset_top = 24.0
+offset_right = -394.0
+offset_bottom = 271.00006
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 100
+text = "Play"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ylpcl")
+volume_db = -25.0
+autoplay = true
+
+[node name="Buttons" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_cx167")
+volume_db = -10.0
+
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+
+[editable path="Background"]

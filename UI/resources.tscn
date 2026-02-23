@@ -1,0 +1,132 @@
+[gd_scene load_steps=7 format=3 uid="uid://dev3bav54i0rc"]
+
+[ext_resource type="Script" uid="uid://cyflsyw0stiv3" path="res://UI/resources.gd" id="1_2rcpk"]
+[ext_resource type="Texture2D" uid="uid://pr0hivt3xour" path="res://Aseprite/Gold.png" id="1_wdnrw"]
+[ext_resource type="Texture2D" uid="uid://dcfybowqsukjd" path="res://Aseprite/Food_Icon.png" id="2_jlt7p"]
+[ext_resource type="Texture2D" uid="uid://dvo26vwne47gj" path="res://Aseprite/Wood_Icon.png" id="3_2rcpk"]
+[ext_resource type="Texture2D" uid="uid://yxyf2y1wqw2j" path="res://Aseprite/Rock_Icon.png" id="4_41qct"]
+[ext_resource type="Texture2D" uid="uid://dlfuhxswl4xhx" path="res://Aseprite/accept_icon.png" id="4_dcbu2"]
+
+[node name="Resources" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_2rcpk")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -241.0
+offset_top = 38.0
+offset_right = 241.0
+offset_bottom = 96.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+
+[node name="GoldIcon" type="TextureRect" parent="Control/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_wdnrw")
+stretch_mode = 4
+
+[node name="GoldText" type="Label" parent="Control/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+
+[node name="FoodIcon" type="TextureRect" parent="Control/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_jlt7p")
+stretch_mode = 4
+
+[node name="FoodButton" type="Button" parent="Control/PanelContainer/HBoxContainer/FoodIcon"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 55.0
+offset_right = -13.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/PanelContainer/HBoxContainer/FoodIcon/FoodButton"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_dcbu2")
+
+[node name="FoodText" type="Label" parent="Control/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+
+[node name="WoodIcon" type="TextureRect" parent="Control/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_2rcpk")
+stretch_mode = 4
+
+[node name="WoodButton" type="Button" parent="Control/PanelContainer/HBoxContainer/WoodIcon"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 55.0
+offset_right = -13.0
+offset_bottom = 55.000046
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/PanelContainer/HBoxContainer/WoodIcon/WoodButton"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_dcbu2")
+
+[node name="WoodText" type="Label" parent="Control/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+
+[node name="RockIcon" type="TextureRect" parent="Control/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_41qct")
+stretch_mode = 4
+
+[node name="RockButton" type="Button" parent="Control/PanelContainer/HBoxContainer/RockIcon"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 55.0
+offset_right = -13.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/PanelContainer/HBoxContainer/RockIcon/RockButton"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_dcbu2")
+
+[node name="RockText" type="Label" parent="Control/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"

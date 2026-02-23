@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0fvawqh08wjs"]
+
+[ext_resource type="Script" uid="uid://cag0nkmyn2xek" path="res://Mobs/enemy.gd" id="1_vkurl"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jq103"]
+radius = 11.0
+height = 36.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_selrt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_selrt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mwy2l"]
+radius = 11.0
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_vkurl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_jq103")
+
+[node name="AttackDirection" type="Node2D" parent="."]
+
+[node name="AttackRange" type="Area2D" parent="AttackDirection"]
+collision_layer = 0
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDirection/AttackRange"]
+position = Vector2(21, 1)
+shape = SubResource("RectangleShape2D_selrt")
+disabled = true
+
+[node name="DamageBox" type="Node2D" parent="AttackDirection"]
+
+[node name="HitBox" type="Area2D" parent="AttackDirection/DamageBox"]
+collision_layer = 0
+collision_mask = 24
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AttackDirection/DamageBox/HitBox"]
+position = Vector2(22, 1)
+shape = SubResource("CircleShape2D_selrt")
+disabled = true
+
+[node name="HurtBox" type="Area2D" parent="AttackDirection/DamageBox"]
+collision_layer = 32
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDirection/DamageBox/HurtBox"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_mwy2l")
+
+[node name="Run" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="body_entered" from="AttackDirection/AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="area_entered" from="AttackDirection/DamageBox/HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="timeout" from="Run" to="." method="_on_run_timeout"]

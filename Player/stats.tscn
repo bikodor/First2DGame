@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://b2knl8dmmndhg"]
+
+[ext_resource type="Script" uid="uid://devrnvbomh5e4" path="res://Player/stats.gd" id="1_1aopb"]
+[ext_resource type="Texture2D" uid="uid://35it3fj3kg0x" path="res://Aseprite/Sprite-0003.png" id="1_ynvk8"]
+[ext_resource type="Texture2D" uid="uid://c4f4d0500k7l1" path="res://Aseprite/Sprite-0001.png" id="2_1aopb"]
+[ext_resource type="Texture2D" uid="uid://bit628ho6k4l0" path="res://Aseprite/Sprite-0002.png" id="3_u037f"]
+[ext_resource type="Texture2D" uid="uid://7spfh786xwrf" path="res://Aseprite/energy_bar_empty.png" id="5_70oc8"]
+[ext_resource type="Texture2D" uid="uid://rh7msxlruout" path="res://Aseprite/energy_bar_progress.png" id="6_n07br"]
+
+[node name="Stats" type="CanvasLayer"]
+script = ExtResource("1_1aopb")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = 47.0
+offset_top = 39.0
+offset_right = 258.05084
+offset_bottom = 83.0
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_ynvk8")
+texture_over = ExtResource("2_1aopb")
+texture_progress = ExtResource("3_u037f")
+tint_over = Color(0.91880155, 0.8277255, 0.35818493, 1)
+tint_progress = Color(0.98627406, 0.13896507, 0, 1)
+
+[node name="Stamina" type="TextureProgressBar" parent="."]
+offset_left = 72.0
+offset_top = 103.0
+offset_right = 233.0
+offset_bottom = 124.0
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("5_70oc8")
+texture_progress = ExtResource("6_n07br")
+tint_progress = Color(0.5261442, 0.96335083, 0.2374022, 1)
+
+[node name="HealthRegen" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[connection signal="timeout" from="HealthRegen" to="." method="_on_health_regen_timeout"]

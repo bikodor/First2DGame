@@ -1,0 +1,215 @@
+[gd_scene load_steps=20 format=3 uid="uid://dmj0aqjwf7j8q"]
+
+[ext_resource type="Script" uid="uid://bv0g5xem66b2b" path="res://Build/shop.gd" id="1_vhfrg"]
+[ext_resource type="Texture2D" uid="uid://8rc17box84lb" path="res://oak_woods_v1.0/decorations/shop_anim.png" id="1_viryw"]
+[ext_resource type="PackedScene" uid="uid://bpywh6idma8r5" path="res://Light/lantern.tscn" id="2_jxx1l"]
+[ext_resource type="Texture2D" uid="uid://b15l7q7kj2euq" path="res://Aseprite/mob_healt_empty.png" id="5_6r1qa"]
+[ext_resource type="Texture2D" uid="uid://c5whji3sgic8s" path="res://Aseprite/mob_healt_progress.png" id="6_fmvai"]
+[ext_resource type="AudioStream" uid="uid://ce6ng38tgfqnx" path="res://Aseprite/sound/single-quiet-knock-on-the-door.mp3" id="6_n27ny"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jxx1l"]
+size = Vector2(92, 88)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rplqf"]
+radius = 75.026665
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7rdd"]
+atlas = ExtResource("1_viryw")
+region = Rect2(0, 0, 118, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blqjs"]
+atlas = ExtResource("1_viryw")
+region = Rect2(118, 0, 118, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgaav"]
+atlas = ExtResource("1_viryw")
+region = Rect2(236, 0, 118, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lah5"]
+atlas = ExtResource("1_viryw")
+region = Rect2(354, 0, 118, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmb2m"]
+atlas = ExtResource("1_viryw")
+region = Rect2(472, 0, 118, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kdgp"]
+atlas = ExtResource("1_viryw")
+region = Rect2(590, 0, 118, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_myf4l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7rdd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blqjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgaav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lah5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmb2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8kdgp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_dj71t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DamageText:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-29, -90)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DamageText:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wtd8m"]
+resource_name = "damage_text"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DamageText:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.30001268),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-29, -90), Vector2(-29, -155.67)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DamageText:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_83exo"]
+resource_name = "heal_text"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DamageText:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.30001268),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-29, -90), Vector2(-29, -155.67)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DamageText:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aa3l0"]
+_data = {
+&"RESET": SubResource("Animation_dj71t"),
+&"damage_text": SubResource("Animation_wtd8m"),
+&"heal_text": SubResource("Animation_83exo")
+}
+
+[node name="Shop" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_vhfrg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jxx1l")
+
+[node name="Shop" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shop"]
+shape = SubResource("CircleShape2D_rplqf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Shop"]
+position = Vector2(0, -19)
+sprite_frames = SubResource("SpriteFrames_myf4l")
+
+[node name="Lantern" parent="Shop" instance=ExtResource("2_jxx1l")]
+position = Vector2(-48, 18)
+
+[node name="Lantern2" parent="Shop" instance=ExtResource("2_jxx1l")]
+position = Vector2(49, 18)
+
+[node name="MobHealth" type="Node2D" parent="."]
+
+[node name="HealthBar" type="TextureProgressBar" parent="MobHealth"]
+offset_left = -66.4
+offset_top = -106.135
+offset_right = 67.99999
+offset_bottom = -78.135
+max_value = 1000.0
+value = 1000.0
+nine_patch_stretch = true
+texture_under = ExtResource("5_6r1qa")
+texture_progress = ExtResource("6_fmvai")
+tint_progress = Color(2.4546682e-06, 0.6618117, 0.39450943, 1)
+
+[node name="DamageText" type="Label" parent="MobHealth"]
+offset_left = -29.0
+offset_top = -90.0
+offset_right = 28.0
+offset_bottom = -21.0
+theme_override_colors/font_color = Color(1, 0.2784314, 0.1882353, 1)
+theme_override_font_sizes/font_size = 50
+text = "20"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MobHealth"]
+libraries = {
+&"": SubResource("AnimationLibrary_aa3l0")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_n27ny")
+volume_db = -20.0
+
+[connection signal="body_entered" from="Shop" to="." method="_on_shop_body_entered"]
+[connection signal="body_exited" from="Shop" to="." method="_on_shop_body_exited"]
